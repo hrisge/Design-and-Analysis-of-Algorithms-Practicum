@@ -1,0 +1,31 @@
+#include <iostream>
+
+int arr3[3000000], n3, count[1000] = { 0 }, res3[3000000];
+
+
+void main3()
+{
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	std::cout.tie(nullptr);
+
+	std::cin >> n3;
+	for (int i = 0; i < n3; ++i)
+		std::cin >> arr3[i];
+
+	for (int i = 0; i < n3; ++i)
+		count[arr3[i]]++;
+
+	int pos = 0;
+	for (int i = 0; i < 1000; ++i) {
+		while (count[i] != 0) {
+			res3[pos++] = i;
+			count[i]--;
+		}
+	}
+
+	for (int i = 0; i < n3; i++)
+		std::cout << res3[i] << " ";
+	std::cout << "\n";
+
+}
