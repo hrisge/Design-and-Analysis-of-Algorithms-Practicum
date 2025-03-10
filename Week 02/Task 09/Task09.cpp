@@ -19,7 +19,7 @@ int main()
 	int len = strlen(str), currCount = 0, best = 0;
 	char bestChar = str[0];
 
-	for (int i = 0; i <= len; ++i) {
+	for (int i = 0; i < len; ++i) {
 
 		if ((str[i] < 'a' || str[i] > 'z') && !currCount) {
 			continue;
@@ -56,6 +56,9 @@ int main()
 		best = currCount;
 		bestChar = str[len - 1];
 	}
+	else if (currCount == best && (bestChar < str[len - 1]))
+		bestChar = str[len - 1];
+
 
 	std::cout << best << " " << bestChar;
 	
